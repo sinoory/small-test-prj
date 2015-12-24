@@ -1,0 +1,8 @@
+dpkg -S Xlib.h
+pkg-config x11 -cflags --libs
+dpkg -S XTest.h
+pkg-config xtst --cflags --libs
+gcc key.c -lX11 -lXtst
+g++ key.cpp -lX11 -lXtst -std=c++11 -lXext -lxcb -lpthread -static -lXdmcp -lXau
+g++ key.cpp -lX11 -lXtst -std=c++11
+g++ key.cpp -lX11 -lXtst -std=c++11

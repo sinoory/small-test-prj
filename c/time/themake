@@ -1,0 +1,3 @@
+g++ -std=c++11 -static main.c 
+
+-static : add the link so into out file, so no dependence problem

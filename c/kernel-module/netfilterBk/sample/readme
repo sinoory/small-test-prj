@@ -1,0 +1,10 @@
+sudo insmod ./sample.ko
+sudo rmmod sample 
+lsmod |grep sample
+
+输出printk ==> dmesg
+
+
+http://linux.net527.cn/Linuxwendang/xitongguanliyuan/38174.html
+
+http://cooliron.blog.163.com/blog/static/1247031382012112110403897/
