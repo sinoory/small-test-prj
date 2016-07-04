@@ -1,9 +1,22 @@
 <html>
+<head>
+<script src="../rsc/js/jquery-3.0.0.min.js"></script>
+</head>
 <body>
 <p>test ogg</p>
 <video controls>
     <source src="../rsc/v/320x240.ogg" type="video/ogg">
     Your browser does not support the <code>video</code> element.
 </video>
+<p id="cons"></p>
+<script>
+    window.onload=function(){
+        var cnt=0;
+        document.addEventListener("keypress",function(){
+                $("#cons").text("kp"+(cnt++));
+                console.log("kp");
+                });
+    }
+</script>
 </body>
 </html>
