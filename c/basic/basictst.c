@@ -22,6 +22,7 @@ void tststrcp(){
 }
 
 int main(){
+    printf("addres of tststrcp=%p\n",tststrcp);
     tststrcp();
     return 0;
 }

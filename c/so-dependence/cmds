@@ -1,0 +1,14 @@
+echo "link libb.so"
+gcc -fPIC -shared libb.c -o libb.so
+
+echo "link liba.so"
+gcc -fPIC -shared liba.c -o liba.so
+
+echo "link main"
+#gcc main.c -L. -la -lb 
+
+#do bellow when run ./a.out
+#export LD_LIBRARY_PATH=/home/sin/disk64/small-test-prj/c/so-dependence/
+
+#or
+gcc main.c -L. -la -lb -Wl,-rpath=.
