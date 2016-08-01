@@ -1,0 +1,54 @@
+<html>
+<head>
+<script src="/js/jquery-3.0.0.min.js"></script>
+</head>
+<body>
+<button onclick="showOgg()">test ogg</button><br>
+
+<!--
+<p>object ogg</p>
+<a herf="http://www.yourwebskills.com/htmlobject.php" value="kk"></a><br>
+<object type="application/ogg" data="/v/5_9m.mp4">
+    <param name="controller" value="true" />
+    <param name="autoplay" value="true" />    
+</object>
+-->
+<p>test mp4</p>
+<video autoplay="autoplay" controls>
+    <source src="/v/5_9m.mp4" type="video/mp4">
+    Your browser does not support the <code>video</code> element.
+</video>
+
+<br><button onclick="showObjectMp4()">object mp4</button><br>
+<div id="divvideos">v</div>
+
+<p id="cons"></p>
+<script>
+    window.onload=function(){
+        var cnt=0;
+        document.addEventListener("keypress",function(){
+                $("#cons").text("kp"+(cnt++));
+                console.log("kp");
+                });
+    }
+    function showOgg(){
+        var str;
+        str+="<p>show ogg</p>";
+        str+='<video controls>';
+        str+='<source src="../rsc/v/xion.ogg" type="video/ogg">';
+        str+='Your browser does not support the <code>video</code> element.';
+        str+='</video>';
+        $("#divvideos").html(str+"<br>"+$("#divvideos").html());
+    }
+    function showObjectMp4(){
+        var str="<p>show mp4 in object tag</p>";
+        str+='<object type="video/mp4" data="../rsc/v/xion.mp4">';
+        str+='<param name="controller" value="true" />';
+        str+='<param name="autoplay" value="false" />';
+        str+='</object>'+"<br>";
+
+        $("#divvideos").html(str+"<br>"+$("#divvideos").html());
+    }
+</script>
+</body>
+</html>

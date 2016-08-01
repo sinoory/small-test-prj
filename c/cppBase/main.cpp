@@ -32,14 +32,21 @@ class D:public B{
 	static void sfb(){cout<<"D:sfb()\n";sfa();}
 };
 
+#define GEN_N(x) #x
+
 void testVirtual(){
+    char* s=GEN_N(58);
 	B* p=new D();
 	p->nf();
 	p->vf();
 	D* pd=new D();
 	pd->nf();
+
 	B::sfb();
-	
+    cout<<"test static virutal\n";
+	p->sfb();
+    cout<<"test none virutal\n";
+	p->nf();
 }
 
 int main(){

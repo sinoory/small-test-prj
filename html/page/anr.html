@@ -1,0 +1,27 @@
+<html>
+<head>
+<script src="../rsc/js/jquery-3.0.0.min.js"></script>
+</head>
+<body>
+<button onclick="looprun()">looprun</button>
+<p id="cons"></p>
+<script>
+    window.onload=function(){
+        $("#cons").html("enter");
+        //looprun();
+    }
+    function looprun(){
+        $("#cons").html("looprun enter");
+        var i=1,j=1;
+        for(;i>0;i++){
+            //console.log("i="+i);
+            for(;j>0;j++){
+                $("#cons").html($("#cons").html()+","+i+":"+j);
+            }
+        }
+        $("#cons").html("looprun finish");
+    }
+</script>
+
+</body>
+</html>

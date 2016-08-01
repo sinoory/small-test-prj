@@ -1,0 +1,4 @@
+npm install express-generator -g
+express -e myapp # create app with ejs 
+cd myapp && npm install
+DEBUG=myapp:* npm start # run
