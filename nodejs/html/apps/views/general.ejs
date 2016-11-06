@@ -1,0 +1,53 @@
+<html>
+<head>
+<script src="/js/jquery-3.0.0.min.js"></script>
+</head>
+<body>
+
+<br><button onclick="showalert()">show alert</button><br>
+
+<br><button onclick="test_requestMediaKeySystemAccess()">1requestMediaKeySystemAccess</button><br>
+
+<p id="cons"></p>
+<script>
+    function log(msg){
+        $("#cons").html($("#cons").html()+msg);
+    }
+    window.onload=function(){
+        var cnt=0;
+        document.addEventListener("keypress",function(){
+                $("#cons").text("kp"+(cnt++));
+                console.log("kp");
+                });
+    }
+    function showalert(){
+        alert("this is alert");
+    }
+
+    function test_requestMediaKeySystemAccess(){
+        var config = [
+        { 'initDataTypes': ['cenc', 'webm'],
+            'audioCapabilities': [
+            {'contentType': 'audio/mp4; codecs="mp4a.40.2"'}
+            ],
+                'videoCapabilities': [
+                {'contentType': 'video/mp4; codecs="avc1.640028"'},
+                {'contentType': 'video/webm; codecs="vp9"'}
+            ]
+        }
+        ];        
+            
+        if (!navigator){
+            log("<br>ERROR: no navigator");
+        }
+
+        if(!navigator.requestMediaKeySystemAccess){
+            log("<br>ERROR : no navigator.requestMediaKeySystemAccess");
+        }
+        
+        navigator.requestMediaKeySystemAccess("testkey",config);
+        log("<br>INFO : finish test navigator.requestMediaKeySystemAccess");
+    }
+</script>
+</body>
+</html>
