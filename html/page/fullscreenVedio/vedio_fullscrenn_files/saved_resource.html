@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)https://thecssninja.com/talks/dnd_and_friends/ -->
+<html lang="en-GB"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	
+	<link rel="stylesheet" type="text/css" href="fathom.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="_styles(1).css" media="screen">
+	<script src="jquery-1.6.2.min.js"></script>
+	<script src="fathom.min.js"></script>
+	
+	<title>DnD and Friends | The CSS Ninja</title>
+
+</head>
+<body>
+	
+	<div id="presentation" style="white-space: nowrap; margin-top: -230px;">
+		
+		<section class="slide begin activeslide inactiveslide" style="white-space: normal; display: inline-block; vertical-align: top; margin-right: -303px; margin-left: -290px;">
+			<h1 class="title01">DnD and Friends</h1>
+			<img src="04_community_560x375.jpg" width="560" height="375">
+			<h2>by Ryan Seddon</h2>
+			<a href="http://twitter.com/ryanseddon" class="posabs br">@ryanseddon</a>
+		</section>
+		
+		<section class="slide inactiveslide" style="white-space: normal; display: inline-block; vertical-align: top; margin-right: -303px;">
+			<h1>Who am I?</h1>
+			<ul>
+				<li>Senior Developer at Seek</li>
+				<li>Developer on Modernizr</li>
+				<li>
+					Stalk me:
+					<ul>
+						<li>Twitter: <a href="http://twitter.com/ryanseddon">@ryanseddon</a></li>
+						<li>The CSS Ninja: <a href="http://thecssninja.com/">http://thecssninja.com/</a></li>
+						<li>GitHub: <a href="https://github.com/ryanseddon">https://github.com/ryanseddon</a></li>
+					</ul>
+				</li>
+			</ul>
+            <div class="posabs tr pad01">
+                <img src="logo_seek.gif"><br><br>
+                <img src="Modernizr-2-Logo.png"><br><br>
+                <img src="css-ninja.png">
+            </div>
+		</section>
+		
+		<section class="slide inactiveslide" style="white-space: normal; display: inline-block; vertical-align: top; margin-right: -303px;">
+			<h1>A bit of history</h1>
+			<ul>
+				<li>Proprietary MS extension</li>
+				<li>Was shipped in IE5 1999</li>
+				<li>Became useful when the other browsers decided to ship it: FF3.5, Safar 3.1 and Chrome 4. No Opera :(</li>
+                <li>Part of the HTML5 spec</li>
+                <li>Not to be confused with all the fake drag and drop stuff out there</li>
+			</ul>
+		</section>
+		
+		<section class="slide inactiveslide" style="white-space: normal; display: inline-block; vertical-align: top; margin-right: -303px;">
+			<h1>What makes an element draggable?</h1>
+			<ul>
+                <li>Both img and anchor elements are naturally draggable</li>
+                <li>Add the "draggable" attribute to any other element to give it the same behaviour</li>
+                <li>Webkit requires some CSS to make it draggable</li>
+            </ul>
+<pre style="color:#000000;background:#ffffff;"><span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> draggable</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">"true"</span><span style="color:#a65700; ">&gt;</span>
+    Drag me
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+<pre style="color:#000000;background:#ffffff;"><span style="color:#808030; ">[</span>draggable<span style="color:#808030; ">=</span><span style="color:#800000; ">"</span><span style="color:#0000e6; ">true</span><span style="color:#800000; ">"</span><span style="color:#808030; ">]</span> <span style="color:#800080; ">{</span>
+  -khtml-user-drag<span style="color:#808030; ">:</span> element<span style="color:#800080; ">;</span>
+  -webkit-user-drag<span style="color:#808030; ">:</span> element<span style="color:#800080; ">;</span>
+  -khtml-user-select<span style="color:#808030; ">:</span> <span style="color:#074726; ">none</span><span style="color:#800080; ">;</span>
+  <span style="color:#008484; ">-moz-user-select</span><span style="color:#808030; ">:</span> <span style="color:#074726; ">none</span><span style="color:#800080; ">;</span>
+  -webkit-user-select<span style="color:#808030; ">:</span> <span style="color:#074726; ">none</span><span style="color:#800080; ">;</span>
+  user-drag<span style="color:#808030; ">:</span> element<span style="color:#800080; ">;</span>
+  user-select<span style="color:#808030; ">:</span> <span style="color:#074726; ">none</span><span style="color:#800080; ">;</span>
+<span style="color:#800080; ">}</span>
+</pre>
+		</section>
+		
+		<section class="slide inactiveslide" style="white-space: normal; display: inline-block; vertical-align: top; margin-right: -303px;">
+			<h1>What makes an element droppable?</h1>
+			<ul>
+                <li>Input, textarea and contenteditable elements</li>
+                <li>HTML5 spec has defined the "dropzone" attribute but no browser supports as of yet*</li>
+                <li>When dropzone is supported the attribute will handle some cases</li>
+            </ul>
+<pre style="color:#000000;background:#ffffff;"><span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#274796; "> dropzone</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">"copy f:image/*"</span><span style="color:#274796; "> ondrop</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">"handleDrop(event, this)"</span><span style="color:#a65700; ">&gt;</span>
+    Drop here!
+<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">div</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+		<div class="center">
+			<img src="css-ninja.png" width="80">
+			<textarea rows="7"></textarea>
+		</div>
+		<p class="posabs bl">* I could be wrong, Chrome maybe?</p>
+		</section>
+		
+		<section class="slide inactiveslide" style="white-space: normal; display: inline-block; vertical-align: top; margin-right: -303px;">
+			<h1>dataTransfer</h1>
+			<ul>
+				<li>On a DnD event you have event.dataTransfer</li>
+				<li>
+                    The dragstart event you can set some data using the setData() method
+                    <ul>
+                        <li>Takes two arguments: type and data</li>
+                        <li>For cross browser goodness text/plain is your best bet</li>
+                    </ul>
+                </li>
+			</ul>
+		</section>
+		
+		<section class="slide inactiveslide" style="white-space: normal; display: inline-block; vertical-align: top; margin-right: -303px;">
+			<h1>dataTransfer</h1>
+			<ul>
+				<li>
+                    ondrop event you can get the data using the getData() method
+                    <ul>
+                        <li>Takes one argument of type</li>
+                        <li>Will return any data that was set to the same type in the dragstart event</li>
+                    </ul>
+                </li>
+			</ul>
+		</section>
+        
+        <section class="slide center inactiveslide" style="white-space: normal; display: inline-block; vertical-align: top; margin-right: -303px;">
+			<h1>Dropping</h1>
+<pre style="color:#000000;background:#ffffff;"><span style="color:#800000; font-weight:bold; ">var</span> dropzone <span style="color:#808030; ">=</span> document<span style="color:#808030; ">.</span>querySelector<span style="color:#808030; ">(</span><span style="color:#0000e6; ">".dropzone"</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+
+document<span style="color:#808030; ">.</span>querySelector<span style="color:#808030; ">(</span><span style="color:#0000e6; ">".dragr"</span><span style="color:#808030; ">)</span><span style="color:#808030; ">.</span>ondragstart <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">function</span><span style="color:#808030; ">(</span>e<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+    <span style="color:#800000; font-weight:bold; ">var</span> dt <span style="color:#808030; ">=</span> e<span style="color:#808030; ">.</span>dataTransfer<span style="color:#800080; ">;</span>
+    
+    dt<span style="color:#808030; ">.</span>setData<span style="color:#808030; ">(</span><span style="color:#0000e6; ">"text/plain"</span><span style="color:#808030; ">,</span> <span style="color:#0000e6; ">"I got dropped"</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+<span style="color:#800080; ">}</span>
+dropzone<span style="color:#808030; ">.</span>ondrop <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">function</span><span style="color:#808030; ">(</span>e<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+    <span style="color:#800000; font-weight:bold; ">var</span> dt <span style="color:#808030; ">=</span> e<span style="color:#808030; ">.</span>dataTransfer<span style="color:#808030; ">,</span>
+        elem <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">this</span><span style="color:#800080; ">;</span>
+    
+    elem<span style="color:#808030; ">.</span>textContent <span style="color:#808030; ">=</span> dt<span style="color:#808030; ">.</span>getData<span style="color:#808030; ">(</span><span style="color:#0000e6; ">"text/plain"</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+    e<span style="color:#808030; ">.</span>preventDefault<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+<span style="color:#800080; ">}</span>
+dropzone<span style="color:#808030; ">.</span>ondragenter <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">function</span><span style="color:#808030; ">(</span>e<span style="color:#808030; ">)</span><span style="color:#800080; ">{</span>e<span style="color:#808030; ">.</span>preventDefault<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span><span style="color:#800080; ">}</span>
+dropzone<span style="color:#808030; ">.</span>ondragover <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">function</span><span style="color:#808030; ">(</span>e<span style="color:#808030; ">)</span><span style="color:#800080; ">{</span>e<span style="color:#808030; ">.</span>preventDefault<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span><span style="color:#800080; ">}</span>
+</pre>			<div class="wrapper">
+                <div class="dropzone">Drop the button here</div>
+                <a class="button dragr" href="https://thecssninja.com/talks/dnd_and_friends/#">Drag me!</a>
+            </div>
+		</section>
+        
+        <section class="slide inactiveslide" style="white-space: normal; display: inline-block; vertical-align: top; margin-right: -303px;">
+			<h1>Rad use cases</h1>
+			<ul>
+				<li>
+                    Drag out a file and save it to your desktop
+                    <ul>
+                        <li>Chrome only, non-standard <a href="https://thecssninja.com/talks/dnd_and_friends/assets/html5-cheat-sheet.pdf" class="button dragout" data-downloadurl="application/pdf:HTML5CheatSheet.pdf:http://www.thecssninja.com/demo/gmail_dragout/html5-cheat-sheet.pdf">Drag me to your desktop</a></li>
+                    </ul>
+                </li>
+			</ul>
+<pre style="color:#000000;background:#ffffff;">dragout<span style="color:#808030; ">.</span>ondragstart <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">function</span><span style="color:#808030; ">(</span>e<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+    <span style="color:#800000; font-weight:bold; ">var</span> dt <span style="color:#808030; ">=</span> e<span style="color:#808030; ">.</span>dataTransfer<span style="color:#808030; ">,</span>
+        data <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">.</span>getAttribute<span style="color:#808030; ">(</span><span style="color:#0000e6; ">"data-downloadurl"</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+    
+    dt<span style="color:#808030; ">.</span>setData<span style="color:#808030; ">(</span><span style="color:#0000e6; ">"DownloadURL"</span><span style="color:#808030; ">,</span> data<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+<span style="color:#800080; ">}</span>
+</pre>
+<pre style="color:#000000;background:#ffffff;"><span style="color:#a65700; ">&lt;</span><span style="color:#800000; font-weight:bold; ">a</span><span style="color:#274796; "> </span><span style="color:#074726; ">href</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">"assets/html5-cheat-sheet.pdf"</span><span style="color:#274796; "> </span>
+<span style="color:#274796; ">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color:#074726; ">class</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">"button dragout"</span><span style="color:#274796; "> </span>
+<span style="color:#274796; ">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color:#074726; ">data</span><span style="color:#274796; ">-downloadurl</span><span style="color:#808030; ">=</span><span style="color:#0000e6; ">"application/pdf:</span>
+<span style="color:#0000e6; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HTML5CheatSheet.pdf:</span>
+<span style="color:#0000e6; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://www.thecssninja.com/demo/gmail_dragout/html5-cheat-sheet.pdf"</span><span style="color:#274796; "></span>
+<span style="color:#a65700; ">&gt;</span>Drag me to your desktop<span style="color:#a65700; ">&lt;/</span><span style="color:#800000; font-weight:bold; ">a</span><span style="color:#a65700; ">&gt;</span>
+</pre>
+		</section>
+        
+        <section class="slide inactiveslide" style="white-space: normal; display: inline-block; vertical-align: top; margin-right: -303px;">
+			<h1>Rad use cases</h1>
+			<ul>
+				<li>font dragr bookmarklet <a class="button" href="javascript:(function(d){var%20s=d.createElement(&#39;script&#39;),h=d.head||d.getElementsByTagName(&#39;head&#39;)[0];s.src=&#39;http://fontdragr.com/bookmarklet/fd-script.js&#39;;h.appendChild(s);})(document);">font dragr</a></li>
+				<li>
+                    setData payload can be quite large e.g. 150kb no problems
+                    <ul>
+                        <li>The bookmarklet captures the drop which passes in the font in base64 format and injects it into the page.</li>
+                        <li>It's just a JSON string which is parsed on drop and the font information is extracted</li>
+                        <li>Can pass from browser to browser</li>
+                        <li>IE will bork on any thing other than "Text" on the set/getData() methods<br> Can fix with conditional compilation to fork for IE @cc_on</li>
+                    </ul>
+                </li>
+			</ul>
+            <div class="center nmar01"><img src="browser-war-copy.png" width="170" height="162"></div>
+		</section>
+        
+        <section class="slide inactiveslide" style="white-space: normal; display: inline-block; vertical-align: top; margin-right: -303px;">
+			<h1>Friends</h1>
+			<ul>
+				<li>FileList interface</li>
+				<li>File API</li>
+                <li>create/revokeObjectURL</li>
+			</ul>
+		</section>
+        
+        <section class="slide inactiveslide" style="white-space: normal; display: inline-block; vertical-align: top; margin-right: -303px;">
+			<h1>Friends: FileList interface</h1>
+			<ul>
+				<li>Mozilla introduced file access through drop events in FF3.6</li>
+				<li>Extended dataTransfer object with the files property</li>
+			</ul>
+<pre style="color:#000000;background:#ffffff;"><span style="color:#800000; font-weight:bold; ">var</span> fileaccess <span style="color:#808030; ">=</span> document<span style="color:#808030; ">.</span>querySelector<span style="color:#808030; ">(</span><span style="color:#0000e6; ">".fileaccess"</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+
+fileaccess<span style="color:#808030; ">.</span>ondrop <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">function</span><span style="color:#808030; ">(</span>e<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+    <span style="color:#800000; font-weight:bold; ">var</span> dt <span style="color:#808030; ">=</span> e<span style="color:#808030; ">.</span>dataTransfer<span style="color:#808030; ">,</span> files <span style="color:#808030; ">=</span> dt<span style="color:#808030; ">.</span>files<span style="color:#808030; ">,</span> elem <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">this</span><span style="color:#800080; ">;</span>
+    
+    elem<span style="color:#808030; ">.</span>innerHTML <span style="color:#808030; ">=</span> files<span style="color:#808030; ">[</span><span style="color:#008c00; ">0</span><span style="color:#808030; ">]</span><span style="color:#808030; ">.</span>name <span style="color:#808030; ">+</span> <span style="color:#0000e6; ">"</span><span style="color:#0f69ff; "> </span><span style="color:#0000e6; ">"</span> <span style="color:#808030; ">+</span> files<span style="color:#808030; ">[</span><span style="color:#008c00; ">0</span><span style="color:#808030; ">]</span><span style="color:#808030; ">.</span>size <span style="color:#808030; ">+</span> <span style="color:#0000e6; ">"</span><span style="color:#0f69ff; "> </span><span style="color:#0000e6; ">"</span> <span style="color:#808030; ">+</span> files<span style="color:#808030; ">[</span><span style="color:#008c00; ">0</span><span style="color:#808030; ">]</span><span style="color:#808030; ">.</span>type<span style="color:#800080; ">;</span>
+    e<span style="color:#808030; ">.</span>preventDefault<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+<span style="color:#800080; ">}</span>
+fileaccess<span style="color:#808030; ">.</span>ondragenter <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">function</span><span style="color:#808030; ">(</span>e<span style="color:#808030; ">)</span><span style="color:#800080; ">{</span>e<span style="color:#808030; ">.</span>preventDefault<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span><span style="color:#800080; ">}</span>
+fileaccess<span style="color:#808030; ">.</span>ondragover <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">function</span><span style="color:#808030; ">(</span>e<span style="color:#808030; ">)</span><span style="color:#800080; ">{</span>e<span style="color:#808030; ">.</span>preventDefault<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span><span style="color:#800080; ">}</span>
+</pre>
+            <div class="wrapper module01 center fileaccess">Drop a file here</div>
+		</section>
+		
+        <section class="slide inactiveslide" style="white-space: normal; display: inline-block; vertical-align: top; margin-right: -303px;">
+			<h1>Friends: FileList interface</h1>
+			<ul>
+				<li>Support has since been added to Chrome 6+ and IE10</li>
+				<li>You can also access files through the file input. Works in more browsers such as Opera 11.</li>
+			</ul>
+<pre style="color:#000000;background:#ffffff;"><span style="color:#800000; font-weight:bold; ">var</span> fileinput <span style="color:#808030; ">=</span> document<span style="color:#808030; ">.</span>querySelector<span style="color:#808030; ">(</span><span style="color:#0000e6; ">".fileinput"</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+
+fileinput<span style="color:#808030; ">.</span>onchange <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">function</span><span style="color:#808030; ">(</span>e<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+    <span style="color:#800000; font-weight:bold; ">var</span> files <span style="color:#808030; ">=</span> fileinput<span style="color:#808030; ">.</span>files<span style="color:#808030; ">,</span> elem <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">this</span><span style="color:#800080; ">;</span>
+    
+    elem<span style="color:#808030; ">.</span>parentNode<span style="color:#808030; ">.</span>innerHTML <span style="color:#808030; ">=</span> <span style="color:#0000e6; ">"Name: "</span> <span style="color:#808030; ">+</span> files<span style="color:#808030; ">[</span><span style="color:#008c00; ">0</span><span style="color:#808030; ">]</span><span style="color:#808030; ">.</span>name <span style="color:#808030; ">+</span> <span style="color:#0000e6; ">" &lt;br /&gt;Size: "</span> <span style="color:#808030; ">+</span> files<span style="color:#808030; ">[</span><span style="color:#008c00; ">0</span><span style="color:#808030; ">]</span><span style="color:#808030; ">.</span>size <span style="color:#808030; ">+</span> <span style="color:#0000e6; ">" &lt;br /&gt;Type: "</span> <span style="color:#808030; ">+</span> files<span style="color:#808030; ">[</span><span style="color:#008c00; ">0</span><span style="color:#808030; ">]</span><span style="color:#808030; ">.</span>type<span style="color:#800080; ">;</span>
+    e<span style="color:#808030; ">.</span>preventDefault<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+<span style="color:#800080; ">}</span>
+</pre>
+            <div class="wrapper module01 center"><input type="file" class="fileinput"></div>
+        </section>
+        
+        <section class="slide inactiveslide" style="white-space: normal; display: inline-block; vertical-align: top; margin-right: -303px;">
+			<h1>Friends: File API</h1>
+			<ul>
+				<li>File API actually allows you to do something useful with the file</li>
+				<li>
+                    FileReader interface
+                    <ul>
+                        <li>Async FileReader allows you to read the file into memory</li>
+                        <li>Various types readAsText/BinaryString/DataURL/ArrayBuffer</li>
+                    </ul>
+                </li>
+			</ul>
+<pre class="nmar01" style="color:#000000;background:#ffffff;"><span style="color:#800000; font-weight:bold; ">var</span> dt <span style="color:#808030; ">=</span> e<span style="color:#808030; ">.</span>dataTransfer<span style="color:#808030; ">,</span> files <span style="color:#808030; ">=</span> dt<span style="color:#808030; ">.</span>files<span style="color:#808030; ">,</span> elem <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">,</span>
+    img <span style="color:#808030; ">=</span> document<span style="color:#808030; ">.</span>createElement<span style="color:#808030; ">(</span><span style="color:#0000e6; ">"img"</span><span style="color:#808030; ">)</span><span style="color:#808030; ">,</span>
+    reader <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">new</span> FileReader<span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+
+reader<span style="color:#808030; ">.</span>onloadend <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">function</span><span style="color:#808030; ">(</span>file<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+    img<span style="color:#808030; ">.</span>src <span style="color:#808030; ">=</span> file<span style="color:#808030; ">.</span>target<span style="color:#808030; ">.</span>result<span style="color:#800080; ">;</span>
+    elem<span style="color:#808030; ">.</span>appendChild<span style="color:#808030; ">(</span>img<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+<span style="color:#800080; ">}</span>
+reader<span style="color:#808030; ">.</span>readAsDataURL<span style="color:#808030; ">(</span>files<span style="color:#808030; ">[</span><span style="color:#008c00; ">0</span><span style="color:#808030; ">]</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+</pre>
+            <div class="wrapper module01 center fileaccessdataurl">Drop an image here</div>
+        </section>
+	
+        <section class="slide inactiveslide" style="white-space: normal; display: inline-block; vertical-align: top; margin-right: -303px;">
+			<h1>Friends: File API</h1>
+			<ul>
+				<li>font dragr also works with font files from your filesystem</li>
+				<li>Same goes for the font dragr bookmarklet in supporting browsers</li>
+			</ul>
+            <div class="wrapper center"><img src="poster.jpg"></div>
+        </section>
+        
+        <section class="slide blob inactiveslide" style="white-space: normal; display: inline-block; vertical-align: top; margin-right: -303px;">
+			<h1>Friends: create/revokeObjectURL</h1>
+			<ul>
+				<li>Loading files into memory isn't very efficient</li>
+				<li>
+                    Bring in createObjectURL
+                    <ul>
+                        <li>Instead of reading into memory this API creates a Blob URL</li>
+                        <li>Look something like this: blob:e5e2c02c-8f10-48e6-b31e-2fb751c3582b</li>
+                        <li>Works wherever URIs work on the web e.g. imgs, CSS etc</li>
+                        <li>Lives for the life of the document</li>
+                    </ul>
+                </li>
+			</ul>
+<pre class="nmar01" style="color:#000000;background:#ffffff;"><span style="color:#800000; font-weight:bold; ">var</span> dt <span style="color:#808030; ">=</span> e<span style="color:#808030; ">.</span>dataTransfer<span style="color:#808030; ">,</span> files <span style="color:#808030; ">=</span> dt<span style="color:#808030; ">.</span>files<span style="color:#808030; ">,</span> elem <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">this</span><span style="color:#808030; ">,</span>
+    url <span style="color:#808030; ">=</span> url <span style="color:#808030; ">=</span> window<span style="color:#808030; ">.</span>URL <span style="color:#808030; ">||</span> window<span style="color:#808030; ">.</span>webkitURL<span style="color:#800080; ">;</span>
+
+elem<span style="color:#808030; ">.</span>innerHTML <span style="color:#808030; ">=</span> url<span style="color:#808030; ">.</span>createObjectURL<span style="color:#808030; ">(</span>files<span style="color:#808030; ">[</span><span style="color:#008c00; ">0</span><span style="color:#808030; ">]</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+</pre>
+            <div class="wrapper module01 center fileaccessblob">Drop an file here to see blob URL</div>
+        </section>
+        
+        <section class="slide inactiveslide" style="white-space: normal; display: inline-block; vertical-align: top; margin-right: -303px;">
+			<h1>Other use cases</h1>
+			<ul>
+				<li>Drag and drop image uploading</li>
+				<li>A way around clipboard restrictions, see Chrome dev tools</li>
+                <li>Contacts importing, drag in a .vcf file etc</li>
+			</ul>
+		</section>
+		
+		<section class="slide inactiveslide" style="white-space: normal; display: inline-block; vertical-align: top; margin-right: -290px;">
+			<h1>Fin and thanks!</h1>
+			<ul>
+				<li>Links to stuff I talked about: <a href="http://bitly.com/niykei" target="_blank">http://bitly.com/niykei</a></li>
+				<li>Slides: <a href="http://thecssninja.com/talks/dnd_and_friends" target="_blank">http://thecssninja.com/talks/dnd_and_friends</a></li>
+			</ul>
+            <div class="wrapper center"><img src="dd.jpg"></div>
+        </section>
+    </div>
+	
+	<script>
+		$('#presentation').fathom({
+			displayMode: 'single',
+			slideTagName: 'section'
+		});
+        
+        // Scripty goodness
+        (function(){
+            var dropzone = document.querySelector(".dropzone"),
+                dragr = document.querySelector(".dragr"),
+                dragout = document.querySelector(".dragout"),
+                fileaccess = document.querySelector(".fileaccess"),
+                fileinput = document.querySelector(".fileinput"),
+                fileaccessdataurl = document.querySelector(".fileaccessdataurl"),
+                fileaccessblob = document.querySelector(".fileaccessblob");
+
+            // DataTransfer demo
+            dragr.ondragstart = function(e) {
+                var dt = e.dataTransfer;
+                
+                dt.setData("text/plain", "I got dropped");
+            }
+            dropzone.ondrop = function(e) {
+                var dt = e.dataTransfer,
+                    elem = this;
+                
+                elem.textContent = dt.getData("text/plain");
+                e.preventDefault();
+            }
+            dropzone.ondragenter = function(e){e.preventDefault();}
+            dropzone.ondragover = function(e){e.preventDefault();}
+            
+            // Dragout demo
+            dragout.ondragstart = function(e) {
+                var dt = e.dataTransfer,
+                    data = this.getAttribute("data-downloadurl");
+                
+                dt.setData("DownloadURL", data);
+            }
+            
+            // File access demo
+            fileaccess.ondrop = function(e) {
+                var dt = e.dataTransfer, files = dt.files, elem = this;
+                
+                elem.innerHTML = "Name: " + files[0].name + " <br />Size: " + files[0].size + " <br />Type: " + files[0].type;
+                e.preventDefault();
+            }
+            fileaccess.ondragenter = function(e){e.preventDefault();}
+            fileaccess.ondragover = function(e){e.preventDefault();}
+            
+            //File access file input demo
+            fileinput.onchange = function(e) {
+                var files = fileinput.files, elem = this;
+                
+                elem.parentNode.innerHTML = "Name: " + files[0].name + " <br />Size: " + files[0].size + " <br />Type: " + files[0].type;
+                e.preventDefault();
+            }
+            
+            // FileReader demo
+            fileaccessdataurl.ondrop = function(e) {
+                var dt = e.dataTransfer, files = dt.files, elem = this,
+                    img = document.createElement("img"),
+                    reader = new FileReader();
+                
+                reader.onloadend = function(file) {
+                    img.src = file.target.result;
+                    elem.appendChild(img);
+                }
+                reader.readAsDataURL(files[0]); 
+                e.preventDefault();
+            }
+            fileaccessdataurl.ondragenter = function(e){e.preventDefault();}
+            fileaccessdataurl.ondragover = function(e){e.preventDefault();}
+            
+            // Blob URL demo
+            fileaccessblob.ondrop = function(e) {
+            var dt = e.dataTransfer, files = dt.files, elem = this,
+                url = url = window.URL || window.webkitURL;
+
+                elem.innerHTML = url.createObjectURL(files[0]);
+                e.preventDefault();
+            }
+            fileaccessblob.ondragenter = function(e){e.preventDefault();}
+            fileaccessblob.ondragover = function(e){e.preventDefault();}
+        })();
+	</script>
+	<!-- Google analytics -->
+	<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script><script src="ga.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		var pageTracker = _gat._getTracker("UA-4638292-1");
+		pageTracker._initData();
+		pageTracker._trackPageview();
+	</script>
+	
+
+
+</body></html>

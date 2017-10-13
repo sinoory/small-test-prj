@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!-- saved from url=(0074)http://192.168.18.10/~seraphic%5chuangbr/beirong_res/fullscreen/index.html -->
+<html lang="en-GB"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	
+	<link rel="stylesheet" type="text/css" href="./vedio_fullscrenn_files/_styles.css" media="screen">
+	
+	<title>Fullscreen API | The CSS Ninja</title>
+<style>
+button:focus
+{ 
+background-color:red;
+}
+a:focus{
+border-color: #ff0000 #0000ff;
+border-style: solid;
+    border-width: 4px;
+-khtml-opacity:.50; 
+ -moz-opacity:.50; 
+ -ms-filter:”alpha(opacity=50)”;
+  filter:alpha(opacity=50);
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0.5);
+  opacity:.50; 
+
+}
+
+</style>
+</head>
+<body>
+	
+	
+	<div class="fl">
+		<video width="320" height="240" controls="">
+			<source src="http://vid.ly/3r6o8q?content=video&amp;format=webm" type="video/webm; codecs=&quot;vp8, vorbis&quot;">
+			<source src="http://vid.ly/3r6o8q?content=video&amp;format=mp4" type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;">
+		</video><br>
+		<button id="fullscreenvid">Fullscreen video</button>
+	</div>
+	
+	<div class="fl">
+		<iframe src="./vedio_fullscrenn_files/saved_resource.html" width="320" height="240" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe><br> 
+		<button id="fullscreeniframe">Fullscreen iframe</button>
+	</div>
+	
+	<script>
+		(function(window, document){
+			var $ = function(selector,context){return(context||document).querySelector(selector)};
+			
+			var video  = $("video"),
+				iframe = $("iframe"),
+				domPrefixes = 'Webkit Moz O ms Khtml'.split(' ');
+				
+			var fullscreen = function(elem) {
+				var prefix;
+				// Mozilla and webkit intialise fullscreen slightly differently
+				for ( var i = -1, len = domPrefixes.length; ++i < len; ) {
+		          prefix = domPrefixes[i].toLowerCase();
+				  
+				  if ( elem[prefix + 'RequestFullScreen'] ) {
+		            // Webkit uses EnterFullScreen for video
+					return prefix + 'RequestFullScreen';
+					break;
+		          } else if( elem[prefix + 'RequestFullScreen'] ) {
+					// Mozilla uses RequestFullScreen for all elements and webkit uses it for non video elements
+					return prefix + 'RequestFullScreen';
+					break;
+				  }
+		        }
+		
+				return false;
+			};
+			
+			// Will return fullscreen method as a string if supported e.g. "mozRequestFullScreen" || false;
+			var fullscreenvideo = fullscreen(document.createElement("video"));
+			
+			// Webkit uses "requestFullScreen" for non video elements
+			var fullscreenother = fullscreen(document.createElement("iframe"));
+
+			if(!fullscreen) {
+				alert("Fullscreen won't work, please make sure you're using a browser that supports it and you have enabled the feature");
+				return;
+			}
+			
+			// Should add prefixed events for potential ms/o or unprefixed support too
+			video.addEventListener("webkitfullscreenchange",function(){
+				console.log(document.webkitIsFullScreen);
+			}, false);
+			video.addEventListener("mozfullscreenchange",function(){
+				console.log(document.mozFullScreen);
+			}, false);
+
+			$("#fullscreenvid").addEventListener("click", function(){
+				// The test returns a string so we can easily call it on a click event
+                console.log("fullscreenvid click v="+fullscreenvideo);
+				video[fullscreenvideo]();
+			}, false);
+			$("#fullscreeniframe").addEventListener("click", function(){
+				// iframe fullscreen and non video elements in webkit use request over enter
+				iframe[fullscreenother]();
+			}, false);
+		})(this, this.document);
+	</script>
+	
+
+
+</body></html>

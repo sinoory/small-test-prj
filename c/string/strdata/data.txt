@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//HbbTV//1.1.1//EN" "http://www.hbbtv.org/dtd/HbbTV-1.1.1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
+<head>
+<title>ARD EPG für HbbTV</title>
+<meta http-equiv="content-type" content="Content-Type: application/vnd.hbbtv.xhtml+xml; charset=UTF-8" />
+<meta name="author" content="MIT-xperts GmbH for ARD" />
+<meta name="description" content="Dies ist die HbbTV-Version des ARD EPG. Sie ist konzipiert für die Nutzung auf Ihrem TV-Gerät und setzt einen Receiver oder ein TV-Gerät voraus, das den HbbTV-Standard unterstützt." />
+<script type="text/javascript" src="../ardstart/api/index.php/api.js" charset="UTF-8"></script>
+<script type="text/javascript" src="xo1.js" charset="UTF-8"></script>
+<script type="text/javascript" src="2nd.js" charset="UTF-8"></script>
+<script type="text/javascript">
+//<![CDATA[
+var iam_data = { "st":"ctvardpr", "cp":"ard_epg_hbbtv" };
+window.onload = function() {
+  GLOBALS.gotostate = "0,1,SCRLID.77652122-";
+    GLOBALS.secondscreen = 1;
+      loadConfig(function() {initApp();}, null);
+      };
+      //]]>
+      </script>
+      <script type="text/javascript" src="https://script.ioam.de/iam.js"></script>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+
+      </head><body>
+
+      <object id="appmgr" type="application/oipfApplicationManager" style="position: absolute; left: 0px; top: 0px; width: 0px; height: 0px;"></object><object id="oipfcfg" type="application/oipfConfiguration" style="position: absolute; left: 0px; top: 0px; width: 0px; height: 0px;"></object><object id="recorder" type="application/oipfRecordingScheduler" style="position: absolute; left: 0px; top: 0px; width: 0px; height: 0px;"></object>
+      <div id="videocontainer" style="left: 0px; top: 0px; width: 1280px; height: 720px;"><object id="video" type="video/broadcast" style="position: absolute; left: 0px; top: 0px; width: 1280px; height: 720px; outline: transparent; -ant-user-input: disabled; -ant-highlight-colour: transparent;"></object></div>
+      <div id="radiobgimg" class="imgdiv" style="left: 0px; top: 0px; width: 1280px; height: 720px; display: none;"></div>
+      <div id="appscreen" style="left: 0px; top: 0px; width: 1280px; height: 720px; visibility: hidden;">
+        <div id="epgbg" class="epgbg"></div>
+          <div id="epgscreen"></div>
+            <div id="ecardscreen" style="display: none;"></div>
+              <div id="playerscreen" style="display: none;"></div>
+                <div id="mediathekscreen" style="display: none;"></div>
+                  <div id="helpscreen" style="display: none;"></div>
+                    <div id="extrasscreen" style="display: none;"><div style="left: 0px; top: 0px; width: 1280px; height: 720px;" class="epgbg"></div></div>
+                      <div id="popupmsgscreen" style="display: none;"></div>
+                      </div>
+                      <div id="hidemsg" style="display: none;">
+                        <div class="colbarr" style="left: 30px; top: 32px;"></div>
+                          <div class="colbartxt" style="left: 67px; top: 32px;">ARD EPG Einblenden</div>
+                            <div class="ardlogo" style="left: 320px; top: 26px;"></div>
+                            </div>
+                            <div id="reminder" style="left: 0px; top: 0px; width: 1280px; height: 720px; display: none;"></div>
+
+
+                            <div id="ivw0" style="left: 0px; top: 0px; width: 1px; height: 1px;"></div>
+                            <div id="ivw1" style="left: 0px; top: 0px; width: 1px; height: 1px;"></div>
+                            <div id="ivw2" style="left: 0px; top: 0px; width: 1px; height: 1px;"></div>
+                            <div id="ivw3" style="left: 0px; top: 0px; width: 1px; height: 1px;"></div>
+
+                            </body>
+                            </html>
+
+

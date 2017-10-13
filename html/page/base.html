@@ -1,0 +1,59 @@
+<html>
+<head>
+<style>
+body {
+      background-color:transparent;
+}
+</style>
+
+<script src="../rsc/js/jquery-3.0.0.min.js"></script>
+</head>
+<body>
+<a id="idbbcplayer" href="http://www.bbc.co.uk/iplayer/?config=precert&lloc=playerpage">bbc iplayer</a>
+<button id="idclose" onclick="closewindow()">close</button>
+<button onclick="exceptionjs()">exceptionjs</button>
+<button onclick="sendXMLHttpRequest()">XMLHttpRequest</button>
+<p id="cons"></p>
+<script>
+    window.onload=function(){
+        document.getElementById("idbbcplayer").focus();
+        console.log("onload");
+        //$("#cons").html("enter");
+        //looprun();
+    }
+    function closewindow(){
+        window.close();
+    }
+    function exceptionjs(){
+        stackA();
+    }
+    function stackA(){
+        stackB();
+    }
+    function stackB(){
+        a="ok";
+        a.lengthX();
+    }
+
+    function sendXMLHttpRequest(){
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '../rsc/res/long.json', true);
+
+        xhr.overrideMimeType('text/plain; charset=x-user-defined');
+
+        xhr.onreadystatechange = function(e) {
+            console.log("this.readyState="+this.readyState+" this.status="+this.status);
+            if (this.readyState == 4 && this.status == 200) {
+                var binStr = this.responseText;
+                console.log("next eval");
+                var js = JSON.parse(binStr);
+                console.log("finish eval,v="+js.version);
+            }
+        };
+
+        xhr.send();
+    }
+</script>
+
+</body>
+</html>

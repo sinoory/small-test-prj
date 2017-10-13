@@ -1,4 +1,10 @@
+install nodejs npm 0.10
+http://www.ghostchina.com/install-nodejs-of-latest-version-in-ubuntu-and-debian/
+curl -sL https://deb.nodesource.com/setup_0.10 | sudo -E bash -  
+sudo apt-get install -y nodejs 
+
 npm install express-generator -g
 express -e myapp # create app with ejs 
 cd myapp && npm install
 DEBUG=myapp:* npm start # run
+default port 3000

@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<body>
+<script>
+console.log("script begin 1");
+window.onload=function(){
+    console.log("onload1");
+    oipf = document.getElementById('oipfcfg');
+
+console.log("r next force focus");
+document.getElementById("idb1").focus();
+console.log("r fini force focus");
+
+    console.log("t(oipf)="+typeof(oipf)+" t(o.c)="+typeof(oipf.configuration));
+    console.log("oipf.configuration.countryId="+oipf.configuration.countryId);
+    console.log("oipf.configuration.toString()="+oipf.configuration.toString());
+
+}
+function logtype(){
+    console.log("t(oipf)="+typeof(oipf)+" t(o.c)="+typeof(oipf.configuration));
+}
+function btnFoucused(){
+    console.log("btn foucused");
+}
+console.log("next force focus");
+document.getElementById("idb1").focus();
+console.log("fini force focus");
+</script>
+<p id="idp">context</p>
+<button id="idb" onfocus="btnFoucused()" onclick="logtype();">logtype</button>
+<button id="idb1" onfocus="btnFoucused()" onclick="logtype();">logtype2</button>
+<div style="left: 0px; top: 0px; width: 1280px; height: 720px;">
+    <object id="appman" type="application/oipfApplicationManager" style="position: absolute; left: 0px; top: 0px; width: 0px; height: 0px;"></object>
+    <object id="oipfcfg" type="application/oipfConfiguration" style="position: absolute; left: 0px; top: 0px; width: 0px; height: 0px;"></object>
+</div>
+</body>
+</html>

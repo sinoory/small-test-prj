@@ -3,39 +3,59 @@
 <script src="../rsc/js/jquery-3.0.0.min.js"></script>
 </head>
 <body>
+<!--
 <button onclick="showOgg()">test ogg</button><br>
 
-<p>object ogg</p>
+<p>object ogg <code>video</code> </p>
 <a herf="http://www.yourwebskills.com/htmlobject.php" value="kk"></a><br>
 <object type="application/ogg" data="../rsc/v/5_9m.mp4">
     <param name="controller" value="true" />
     <param name="autoplay" value="true" />    
 </object>
-<!--
 <p>test mp4</p>
 <video autoplay="autoplay" controls>
     <source src="../rsc/v/xion.mp4" type="video/mp4">
     Your browser does not support the <code>video</code> element.
 </video>
--->
 
+<video id="vogg" autoplay="autoplay" style="position: absolute;width: 100%;height: 100%;top: 0;left: 0;position: absolute;" controls>
+-->
+<input type="text" id="idt" name="fname">
+<button id="idbFull" onclick="enterFullScr();">enterfullscreen</button>
+<button >enterf222ullscreen</button>
+<video id="vogg" autoplay controls>
+    <source src="../rsc/v/5_9m.mp4" type="video/mp4">
+    <source src="../rsc/v/xion.ogg" type="video/ogg">
+    Your browser does not support the <code>video</code> element.
+</video>
+<!--
 <br><button onclick="showObjectMp4()">object mp4</button><br>
 <div id="divvideos">v</div>
 
 <p id="cons"></p>
+<br><button onclick="dynamicObj()">dynamic mp4</button><br>
+<div id="vidcontainer">c</div>
+-->
 <script>
     window.onload=function(){
         var cnt=0;
         document.addEventListener("keypress",function(){
-                $("#cons").text("kp"+(cnt++));
+                //$("#cons").text("kp"+(cnt++));
                 console.log("kp");
                 });
+        //$("#idbFull")[0].focus();
+        $("#idt")[0].focus();
+    }
+    function enterFullScr(){
+        console.log("enterFullScr >>>>");
+        $("#vogg")[0].webkitRequestFullScreen();
+        console.log("enterFullScr <<<<");
     }
     function showOgg(){
         var str;
-        str+="<p>show ogg</p>";
-        str+='<video controls>';
-        str+='<source src="../rsc/v/xion.ogg" type="video/ogg">';
+        str+="<p>show 1 ogg</p>";
+        str+='<video  controls>';
+        str+='<source src="../rsc/v/xion.ogg" type="video/ogg" autoplay="autoplay" >';
         str+='Your browser does not support the <code>video</code> element.';
         str+='</video>';
         $("#divvideos").html(str+"<br>"+$("#divvideos").html());
@@ -48,6 +68,20 @@
         str+='</object>'+"<br>";
 
         $("#divvideos").html(str+"<br>"+$("#divvideos").html());
+    
+    }
+    function dynamicObj(){
+        vid = document.createElement("object");
+        vid.type = "video/mp4";
+        vid.setAttribute("type", vid.type);
+        vid.setAttribute("style", "position: absolute; left: 0px; top: 0px; width: 416px; height: 234px; outline: transparent;");
+        vid.style.position = "absolute";
+        vid.style.left = "0px";
+        vid.style.top = "0px";
+        vid.style.width = "416px";
+        vid.style.height = "234px";
+        vid.style.outline = "transparent";
+        document.getElementById("vidcontainer").appendChild(vid);
     }
 </script>
 </body>

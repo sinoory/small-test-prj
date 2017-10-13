@@ -1,5 +1,11 @@
 <html>
 <head>
+<style>
+body {
+  background-color:white;
+}
+
+</style>
 <script src="/js/jquery-3.0.0.min.js"></script>
 </head>
 <body>
@@ -7,6 +13,14 @@
 <br><button onclick="showalert()">show alert</button><br>
 
 <br><button onclick="test_requestMediaKeySystemAccess()">1requestMediaKeySystemAccess</button><br>
+<p>test mp4 in general page</p>
+<video id="vf" autoplay="autoplay"  width="800" height="480" controls>
+    <source src="/v/xion.ogg" type="video/ogg">
+    <source src="/v/5_9m.mp4" type="video/mp4">
+    Your browser does not support the <code>video</code> element.
+</video>
+<!--
+-->
 
 <p id="cons"></p>
 <script>

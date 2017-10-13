@@ -4,7 +4,7 @@
 </head>
 <body>
 <button id="idb" onclick="showOgg()">test ogg</button><br>
-
+<button id="idbFull" onclick="enterFullScr();">enterfullscreen</button>
 <!--
 <p>object ogg</p>
 <a herf="http://www.yourwebskills.com/htmlobject.php" value="kk"></a><br>
@@ -12,19 +12,25 @@
     <param name="controller" value="true" />
     <param name="autoplay" value="true" />    
 </object>
+-->
+<p> add iframe</p>
+<iframe src="g" width="600" height="480" scrolling="no" frameborder="0"></iframe>
+
+<!--
 <p>test mp4</p>
-<video id="idv" autoplay="autoplay" controls>
+<video id="vf" autoplayX="autoplay"  width="800" height="480" controls>
+    <source src="/v/xion.ogg" type="video/ogg">
     <source src="/v/5_9m.mp4" type="video/mp4">
     Your browser does not support the <code>video</code> element.
 </video>
 -->
 
+<!--
 <p>test ogg</p>
 <video id="idv" autoplay="autoplay"  controls>
     <source src="/v/xion.ogg" type="video/ogg">
     Your browser does not support the <code>video</code> element.
 </video>
-<!--
 -->
 
 
@@ -34,11 +40,18 @@
 <p id="cons"></p>
 <script>
     window.onload=function(){
+        console.log("onload")
         var cnt=0;
         document.addEventListener("keypress",function(){
                 $("#cons").text("kp"+(cnt++));
                 console.log("kp");
                 });
+        $("#idbFull")[0].focus();
+    }
+    function enterFullScr(){
+                console.log("enterFullScr >>>>");
+                $("#vf")[0].webkitRequestFullScreen();
+                console.log("enterFullScr <<<<");
     }
     function showOgg(){
         var str;
