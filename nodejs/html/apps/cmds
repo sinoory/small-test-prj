@@ -8,3 +8,6 @@ express -e myapp # create app with ejs
 cd myapp && npm install
 DEBUG=myapp:* npm start # run
 default port 3000
+
+#export PORT=80
+#npm start

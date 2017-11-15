@@ -26,6 +26,7 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/video', require('./routes/video/video'));
 app.use('/g', require('./routes/general'));
+app.use('/ltts', require('./routes/ltts'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
