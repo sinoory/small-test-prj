@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
+app.use('/', require('./routes/ltts'));
 app.use('/users', users);
 app.use('/video', require('./routes/video/video'));
 app.use('/g', require('./routes/general'));

@@ -11,3 +11,13 @@ default port 3000
 
 #export PORT=80
 #npm start
+
+
+https://blog.fundebug.com/2017/03/27/nodejs-docker/
+sudo docker ps -a
+sudo docker stop 4a79e100c00c-see-ps
+sudo docker rm the-container-id
+sudo docker rmi the-image-id
+sudo docker build -t fundebug/nodejs .
+sudo docker run -d --net=host --name=hello-fundebug fundebug/nodejs
+
