@@ -1,0 +1,603 @@
+/*
+ * html5doctor.com Reset Stylesheet
+ * v1.6.1
+ * Last Updated: 2010-09-17
+ * Author: Richard Clark - http://richclarkdesign.com
+ * Twitter: @rich_clark
+ * */
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    font-weight: 100;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+body {
+    line-height: 1;
+}
+html {
+    height: 100%;
+}
+body,
+html {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+nav ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: "";
+    content: none;
+}
+
+a {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    text-decoration: none;
+}
+.slick-dots {
+    text-align: center;
+    width: 100%;
+    list-style: none;
+    margin: .25rem 0;
+}
+.slick-dots li {
+    position: relative;
+    display: inline-block;
+    height: .13rem;
+    width: .13rem;
+    cursor: pointer;
+    margin: 0 .05rem;
+    padding: 0;
+    border: none;
+}
+.slick-dots li button {
+    display: block;
+    height: .13rem;
+    width: .13rem;
+    line-height: 0;
+    font-size: 0;
+    color: transparent;
+    cursor: pointer;
+    border-width: 0;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+    background: 0 0;
+    padding: 0;
+    border: none;
+
+}
+.slick-dots li button::before {
+    content: "";
+    width: .13rem;
+    height: .13rem;
+    font-size: .0rem;
+    line-height: .13rem;
+    text-align: center;
+    background: #aaa;
+    display: block;
+    border-radius: 50%;
+}
+.pink-dots .slick-dots li.slick-active button::before {
+    background: #34adff;
+}
+.blue-dots .slick-dots li.slick-active button::before {
+    background: #34adff;
+}
+
+.bigScreenshot .slick-dots {
+    position: absolute;
+    bottom: 0;
+}
+.guessYouLike .slick-track {
+    height: 2.4rem;
+    overflow: hidden;
+}
+@keyframes seal {
+    0% {
+        opacity: .3;
+        -webkit-transform: scale(2, 2);
+                transform: scale(2, 2);
+    }
+    50% {
+        opacity: 1;
+        -webkit-transform: scale(2, 2);
+                transform: scale(2, 2);
+    }
+    75% {
+        opacity: 1;
+        -webkit-transform: scale(2.67, 2.67);
+                transform: scale(2.67, 2.67);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1, 1);
+                transform: scale(1, 1);
+    }
+}
+
+@-webkit-keyframes seal {
+    0% {
+        opacity: .3;
+        -webkit-transform: scale(2, 2);
+                transform: scale(2, 2);
+    }
+    50% {
+        opacity: 1;
+        -webkit-transform: scale(2, 2);
+                transform: scale(2, 2);
+    }
+    75% {
+        opacity: 1;
+        -webkit-transform: scale(2.67, 2.67);
+                transform: scale(2.67, 2.67);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1, 1);
+                transform: scale(1, 1);
+    }
+}
+.seal {
+    opacity: 0;
+    -webkit-animation: seal 1s;
+            animation: seal 1s;
+    -webkit-animation-delay: .5s;
+            animation-delay: .5s;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+}
+
+body {
+    font-family: sans-serif;
+}
+/*元素类型*/
+.btn {
+    border-radius: .04rem;
+    height: .67rem;
+    line-height: .67rem;
+    text-align: center;
+    border: 1px solid transparent;
+}
+.btn:active {
+    box-shadow: 0 0 5px 1px rgba(255, 255, 255, .6) inset;
+}
+
+
+/*显示隐藏*/
+.hide {
+    display: none !important;
+}
+.show {
+    display: block;
+}
+
+/*边框样式*/
+.border-solid-1 {
+    border: 1px solid;
+}
+.border-solid-2 {
+    border: 2px solid;
+}
+.border-color-gray {
+    border: 1px solid #efefef;
+    border-radius: .3rem;
+}
+.border-bottom-dotted {
+    border-bottom: 1px dotted #dedede;
+}
+.border-bottom-solid {
+    border-bottom: 1px solid #dedede;
+}
+.border-top-solid {
+    border-top: 1px solid #dedede;
+}
+
+/*边距*/
+.margin-20 {
+    margin: .2rem;
+}
+.margin-bottom-20 {
+    margin-bottom: .2rem;
+}
+.margin-bottom-15 {
+    margin-bottom: .15rem;
+}
+.margin-right-20 {
+    margin-right: .2rem;
+}
+.margin-right-25 {
+    margin-right: .25rem;
+}
+.margin-left-25 {
+    margin-left: .25rem;
+}
+
+/*行数限制*/
+.text-clamp-1,
+.text-clamp-2,
+.text-clamp-3 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.text-clamp-1 {
+    -webkit-line-clamp: 1;
+}
+.text-clamp-2 {
+    -webkit-line-clamp: 2;
+}
+.text-clamp-3 {
+    -webkit-line-clamp: 3;
+}
+
+.test_overflow_c,
+.text_overflow_e {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.test_overflow_c {
+    text-overflow: clip;
+}
+.overflow-hidden {
+    overflow: hidden;
+}
+/*flex box*/
+.flex-box-h,
+.flex-box-v,
+.flex-box-c {
+    display: -webkit-box;
+    -webkit-box-pack: justify;
+    -webkit-box-align: center;
+}
+.flex-box-h {
+    -webkit-box-orient: horizontal;
+}
+.flex-box-v {
+    -webkit-box-orient: vertical;
+}
+.flex-box-c {
+    -webkit-box-pack: center;
+}
+.flex-item-1 {
+    -webkit-box-flex: 1;
+}
+
+/*卡片样式*/
+.card_style_normal {
+    border-top: 1px solid #dedede;
+    border-bottom: 1px solid #dedede;
+    background-color: #fff;
+}
+
+.card_style_small {
+    background-color: #fff;
+    border: 1px solid #d8d8d8;
+    text-align: center;
+}
+/*分数样式*/
+.score_star {
+    background-image: url(//ascdn.baidu.com/appsearch/magneton/gray-star.png);
+}
+.score_orange_star {
+    background-image: url(//ascdn.baidu.com/appsearch/magneton/orange-star.png);
+}
+
+
+/*位置*/
+.p_absolute_lt,
+.p_absolute_lb,
+.p_absolute_rt {
+    position: absolute;
+}
+.p_fixed_lt,
+.p_fixed_lb,
+.p_fixed_rt,
+.p_fixed_rb,
+.p_fixed_full {
+    position: fixed;
+}
+.p_absolute_lt,
+.p_fixed_lt {
+    top: 0;
+    left: 0;
+}
+.p_absolute_lb,
+.p_fixed_lb,
+.p_fixed_full {
+    bottom: 0;
+    left: 0;
+}
+.p_fixed_rt,
+.p_absolute_rt,
+.p_fixed_full {
+    right: 0;
+    top: 0;
+}
+.p_fixed_rb,
+.p_absolute_rb {
+    right: 0;
+    bottom: 0;
+}
+/* display */
+.display-ib {
+    display: inline-block;
+}
+/* 文字 */
+
+.t_s {
+    font-size: .28rem;
+}
+.t_m {
+    font-size: .32rem;
+}
+.t_l {
+    font-size: .4rem;
+}
+.t_align_c {
+    text-align: center;
+}
+.t_align_r {
+    text-align: right;
+}
+/* 按钮 */
+.btn_s {
+    line-height: .48rem;
+    border-radius: .24rem;
+    padding: 0 .24rem;
+}
+.btn_m {
+    line-height: .64rem;
+    border-radius: .32rem;
+    padding: 0 .32rem;
+}
+.btn_s,
+.btn_m {
+    display: inline-block;
+    text-align: center;
+}
+/* 形状 */ 
+.shape_cirdle {
+    border-radius: 50%;
+}
+/* 图标 */
+.icon_75 {
+    width: .75rem;
+    height: .75rem;
+    border-radius: 14%;
+}
+/*通用背景色*/
+.color-bg-blue {
+    background-color: #34adff;
+}
+.color-bg-green {
+    background-color: #3fcf8a;
+}
+.color-bg-green-d {
+    background-color: #09b63a;
+}
+
+.color-bg-orange {
+    background-color: #ff7d4c;
+}
+.color-bg-yellow {
+    background-color: #fed01a;
+}
+.color-bg-red {
+    background-color: #ff4f51;
+}
+.color-bg-gray-efefef {
+    background-color: #efefef;
+}
+.color-bg-white {
+    background-color: #fff;
+}
+.color-bg-lightblue {
+    background-color: #e6f5ff;
+}
+.color-bg-black {
+    background-color: #000;
+}
+.color-bg-gray {
+    background-color: #3b4857;
+}
+.color-bg-gray-bbb {
+    background-color: #bbb;
+}
+.color-bg-pink {
+    background-color: #fff2ed;
+}
+.color-bg-gray-l {
+    background-color: #b4b4b4;
+}
+/*通用颜色*/
+.color-blue {
+    color: #34adff;
+}
+.color-green {
+    color: #3fcf8a;
+}
+.color-orange {
+    color: #ff7d4c;
+}
+.color-yellow {
+    color: #fed01a;
+}
+.color-red {
+    color: #ff4f51;
+}
+.color-blue {
+    color: #34adff;
+}
+.color-blue-darker {
+    color: #349fe9;
+}
+.color-white {
+    color: #fff;
+}
+.color-gray {
+    color: #737373;
+}
+.color-gray-333 {
+    color: #333;
+}
+.color-gray-bbb {
+    color: #bbb;
+}
+.color-gray-666 {
+    color: #666;
+}
+.color-gray-999 {
+    color: #999;
+}
+.color-gray-light {
+    color: #c2c2c2;
+}
+.color-ba818a {
+    color: #ba818a;
+}
+/*通用边框颜色*/
+.color-borderbottom-blue {
+    border-bottom: 2px solid #34adff;
+}
+.color-borderbottom-transparent {
+    border-bottom: 2px solid transparent;
+}
+.color-border-blue {
+    border-color: #34adff;
+}
+@font-face {
+    font-family: "iconfont";
+    src: url(//ascdn.baidu.com/node-appsite/fonteditor-3d2825be5402b13586d53639ff3d5b50.ttf) format('truetype');
+}
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: .2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+body {
+    font-family: sans-serif;
+}
+.icon-two:before {
+    content: "\E002";
+}
+.icon-three:before {
+    content: "\E003";
+}
+.icon-more:before {
+    content: "\E004";
+}
+.icon-close:before {
+    content: "\E005";
+}
+.icon-back:before {
+    content: "\E00A";
+}
