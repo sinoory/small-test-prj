@@ -23,6 +23,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', require('./routes/ltts'));
+app.use('/lsbrs', require('./routes/lsbrs'));
 app.use('/users', users);
 app.use('/video', require('./routes/video/video'));
 app.use('/g', require('./routes/general'));
