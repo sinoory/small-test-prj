@@ -1,0 +1,87 @@
+if (is_android){
+  import("//build/config/android/config.gni")
+  import("//build/config/android/rules.gni")
+}else{
+}
+import("//testing/test.gni")
+
+shared_library("sraf_ipc") {
+  sources = [
+    "lib/lib_ipc.cc",
+  ]
+  deps = [
+    "//ipc:ipc",
+    "//base:base",
+  ]
+}
+
+static_library("sraf_ipc_static") {
+  sources = [
+    "lib/lib_ipc.cc",
+  ]
+  deps = [
+    "//ipc:ipc",
+    "//base:base",
+  ]
+}
+
+
+
+group("sraf_ipc_tests_run") {
+  testonly = true
+  deps = [
+    ":sraf_ipc_tests",
+  ]
+}
+
+executable("sraf_ipc_tests") {
+  testonly = true
+  sources = [
+    "test/ipc_unittest.cc",
+  ]
+  deps = [
+    ":sraf_ipc",
+    #"//base",
+    #"//ipc:ipc",
+    "//base/test:run_all_unittests",
+    "//base/test:test_support",
+    "//testing/gtest",
+  ]
+}
+
+group("sraf_ipc_samples") {
+  deps = [
+    ":sraf_ipc_server_sample",
+    ":sraf_ipc_client_sample",
+    #":sraf_ipc_singleprocess_sample",
+  ]
+}
+
+executable("sraf_ipc_singleprocess_sample") {
+  sources = [
+    "test/ipc_singleprocess_sample.cc",
+  ]
+  deps = [
+    ":sraf_ipc_static",
+  ]
+
+}
+
+executable("sraf_ipc_server_sample") {
+  sources = [
+    "test/server.cc",
+  ]
+  deps = [
+    ":sraf_ipc_static",
+  ]
+}
+
+executable("sraf_ipc_client_sample") {
+  sources = [
+    "test/client.cc",
+  ]
+  deps = [
+    ":sraf_ipc_static", #NOTE link shared library will cause LOG error on android
+  ]
+}
+
